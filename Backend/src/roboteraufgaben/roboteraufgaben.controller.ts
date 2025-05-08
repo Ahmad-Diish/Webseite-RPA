@@ -1,7 +1,7 @@
 // src/roboter-aufgabe/roboter-aufgabe.controller.ts
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
-import { RoboterAufgabeService } from './roboter-aufgabe.service';
-import { RoboterAufgabe } from './roboter-aufgabe.entity';
+import { RoboterAufgabeService } from './roboteraufgaben.service';
+import { RoboterAufgabe } from './roboteraufgaben.entity';
 
 @Controller('roboter-aufgaben')
 export class RoboterAufgabeController {

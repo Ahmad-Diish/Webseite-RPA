@@ -1,7 +1,7 @@
 // src/rpa-aufgabe/rpa-aufgabe.controller.ts
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
-import { RpaAufgabeService } from './rpa-aufgabe.service';
-import { RpaAufgabe } from './rpa-aufgabe.entity';
+import { RpaAufgabeService } from './rpa-aufgaben.service';
+import { RpaAufgabe } from './rpa-aufgaben.entity';
 
 @Controller('rpa-aufgaben')
 export class RpaAufgabeController {

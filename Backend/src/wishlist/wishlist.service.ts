@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Wishlist } from './wishlist.entity';
+import { NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class WishlistService {
@@ -16,7 +17,13 @@ export class WishlistService {
   }
 
   async findOne(id: number): Promise<Wishlist> {
-    return this.wishlistRepository.findOne(id);
+    const wishlist = await this.wishlistRepository.findOne({
+      where: { wishlistID: id }, // Replace 'wishlistID' with the actual primary column name
+    });
+    if (!wishlist) {
+      throw new NotFoundException(`Wishlist with ID ${id} not found`);
+    }
+    return wishlist;
   }
 
   async create(wishlist: Wishlist): Promise<Wishlist> {

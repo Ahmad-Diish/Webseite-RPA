@@ -16,9 +16,15 @@ export class EntwicklerService {
   }
 
   async findOne(id: number): Promise<Entwickler> {
-    return this.entwicklerRepository.findOne(id);
+    const entwickler = await this.entwicklerRepository.findOne({
+      where: { entwicklerID: id },
+    });
+    if (!entwickler) {
+      throw new Error(`Entwickler with ID ${id} not found`);
+    }
+    return entwickler;
   }
-
+  
   async create(entwickler: Entwickler): Promise<Entwickler> {
     return this.entwicklerRepository.save(entwickler);
   }

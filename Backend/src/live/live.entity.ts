@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 @Entity()
 export class Live {
   @PrimaryGeneratedColumn()
-  LiveID: number;
+  liveID: number; 
 
   @Column()
   Status: string;

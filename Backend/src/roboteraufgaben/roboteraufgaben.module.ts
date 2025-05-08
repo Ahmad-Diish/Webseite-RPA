@@ -1,9 +1,9 @@
 // src/roboter-aufgabe/roboter-aufgabe.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RoboterAufgabeService } from './roboter-aufgabe.service';
-import { RoboterAufgabeController } from './roboter-aufgabe.controller';
-import { RoboterAufgabe } from './roboter-aufgabe.entity';
+import { RoboterAufgabeService } from './roboteraufgaben.service';
+import { RoboterAufgabeController } from './roboteraufgaben.controller';
+import { RoboterAufgabe } from './roboteraufgaben.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([RoboterAufgabe])],

@@ -6,7 +6,7 @@ import { RpaAufgabe } from '../rpa-aufgaben/rpa-aufgaben.entity';
 @Entity()
 export class RoboterAufgabe {
   @PrimaryGeneratedColumn()
-  roboteraufgabenID: number;
+  roboterAufgabeID: number;
 
   @ManyToOne(() => Roboter)
   @JoinColumn()

@@ -6,7 +6,7 @@ import { RpaAufgabe } from '../rpa-aufgaben/rpa-aufgaben.entity';
 @Entity()
 export class RpaFehler {
   @PrimaryGeneratedColumn()
-  FehlerID: number;
+  rpaFehlerID: number;
 
   @Column()
   FehlerNachricht: string;

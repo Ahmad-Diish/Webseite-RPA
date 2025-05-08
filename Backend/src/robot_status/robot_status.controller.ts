@@ -1,7 +1,7 @@
 // src/robot-status/robot-status.controller.ts
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
-import { RobotStatusService } from './robot-status.service';
-import { RobotStatus } from './robot-status.entity';
+import { RobotStatusService } from './robot_status.service';
+import { RobotStatus } from './robot_status.entity';
 
 @Controller('robot-status')
 export class RobotStatusController {

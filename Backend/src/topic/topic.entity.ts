@@ -4,7 +4,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 @Entity()
 export class Topic {
   @PrimaryGeneratedColumn()
-  TobicId: number;
+  topicID: number;
 
   @Column()
   TopicName: string;

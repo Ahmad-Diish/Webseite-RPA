@@ -5,7 +5,7 @@ import { User } from '../user/user.entity';
 @Entity()
 export class RpaAufgabe {
   @PrimaryGeneratedColumn()
-  AufgabeID: number;
+  rpaAufgabeID: number;
 
   @Column()
   AufgabenName: string;

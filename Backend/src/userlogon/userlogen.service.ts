@@ -2,7 +2,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { UserLogon } from './userlogon.entity';
+import { UserLogon } from './userlogen.entity';
+import { NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class UserLogonService {
@@ -16,7 +17,13 @@ export class UserLogonService {
   }
 
   async findOne(id: number): Promise<UserLogon> {
-    return this.userLogonRepository.findOne(id);
+    const userLogon = await this.userLogonRepository.findOne({
+      where: { UserID: id }, // Replace 'userLogonID' with the actual primary column name
+    });
+    if (!userLogon) {
+      throw new NotFoundException(`UserLogon with ID ${id} not found`);
+    }
+    return userLogon;
   }
 
   async create(userLogon: UserLogon): Promise<UserLogon> {

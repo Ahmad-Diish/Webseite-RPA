@@ -1,8 +1,9 @@
 // src/roboter-aufgabe/roboter-aufgabe.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { NotFoundException } from '@nestjs/common';
 import { Repository } from 'typeorm';
-import { RoboterAufgabe } from './roboter-aufgabe.entity';
+import { RoboterAufgabe } from './roboteraufgaben.entity';
 
 @Injectable()
 export class RoboterAufgabeService {
@@ -16,7 +17,13 @@ export class RoboterAufgabeService {
   }
 
   async findOne(id: number): Promise<RoboterAufgabe> {
-    return this.roboterAufgabeRepository.findOne(id);
+    const roboterAufgabe = await this.roboterAufgabeRepository.findOne({
+      where: { roboterAufgabeID: id }, // Replace 'roboterAufgabeID' with the correct primary key column name
+    });
+    if (!roboterAufgabe) {
+      throw new NotFoundException(`RoboterAufgabe with ID ${id} not found`);
+    }
+    return roboterAufgabe;
   }
 
   async create(roboterAufgabe: RoboterAufgabe): Promise<RoboterAufgabe> {

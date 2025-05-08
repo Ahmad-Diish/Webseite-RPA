@@ -1,7 +1,7 @@
 // src/userlogon/userlogon.controller.ts
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
-import { UserLogonService } from './userlogon.service';
-import { UserLogon } from './userlogon.entity';
+import { UserLogonService } from './userlogen.service';
+import { UserLogon } from './userlogen.entity';
 
 @Controller('userlogons')
 export class UserLogonController {

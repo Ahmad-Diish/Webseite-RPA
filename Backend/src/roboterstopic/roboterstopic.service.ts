@@ -2,7 +2,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { RoboterStopic } from './roboter-stopic.entity';
+import { NotFoundException } from '@nestjs/common';
+import { RoboterStopic } from './roboterstopic.entity';
 
 @Injectable()
 export class RoboterStopicService {
@@ -16,7 +17,13 @@ export class RoboterStopicService {
   }
 
   async findOne(id: number): Promise<RoboterStopic> {
-    return this.roboterStopicRepository.findOne(id);
+    const roboterStopic = await this.roboterStopicRepository.findOne({
+      where: { roboterstopicID: id }, // Replace 'roboterStopicID' with your actual primary key column name
+    });
+    if (!roboterStopic) {
+      throw new NotFoundException(`RoboterStopic with ID ${id} not found`);
+    }
+    return roboterStopic;
   }
 
   async create(roboterStopic: RoboterStopic): Promise<RoboterStopic> {

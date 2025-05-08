@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Topic } from './topic.entity';
+import { NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class TopicService {
@@ -16,7 +17,13 @@ export class TopicService {
   }
 
   async findOne(id: number): Promise<Topic> {
-    return this.topicRepository.findOne(id);
+    const topic = await this.topicRepository.findOne({
+      where: { topicID: id }, // Replace 'topicID' with the actual primary column name
+    });
+    if (!topic) {
+      throw new NotFoundException(`Topic with ID ${id} not found`);
+    }
+    return topic;
   }
 
   async create(topic: Topic): Promise<Topic> {

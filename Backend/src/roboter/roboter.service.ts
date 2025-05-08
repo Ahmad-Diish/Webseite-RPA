@@ -1,5 +1,6 @@
 // src/roboter/roboter.service.ts
 import { Injectable } from '@nestjs/common';
+import { NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Roboter } from './roboter.entity';
@@ -16,7 +17,13 @@ export class RoboterService {
   }
 
   async findOne(id: number): Promise<Roboter> {
-    return this.roboterRepository.findOne(id);
+    const roboter = await this.roboterRepository.findOne({
+      where: { roboterID: id },
+    });
+    if (!roboter) {
+      throw new NotFoundException(`Roboter with ID ${id} not found`);
+    }
+    return roboter;
   }
 
   async create(roboter: Roboter): Promise<Roboter> {

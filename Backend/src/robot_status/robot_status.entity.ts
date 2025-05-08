@@ -5,7 +5,7 @@ import { Roboter } from '../roboter/roboter.entity';
 @Entity()
 export class RobotStatus {
   @PrimaryGeneratedColumn()
-  StatusID: number;
+  robotStatusID: number;
 
   @ManyToOne(() => Roboter)
   @JoinColumn()

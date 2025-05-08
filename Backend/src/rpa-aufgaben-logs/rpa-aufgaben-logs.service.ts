@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { RpaAufgabenLogs } from './rpa-aufgaben-logs.entity';
+import { NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class RpaAufgabenLogsService {
@@ -16,7 +17,13 @@ export class RpaAufgabenLogsService {
   }
 
   async findOne(id: number): Promise<RpaAufgabenLogs> {
-    return this.rpaAufgabenLogsRepository.findOne(id);
+    const rpaAufgabenLog = await this.rpaAufgabenLogsRepository.findOne({
+      where: { rpaAufgabenLogID: id }, // Use the correct primary column name here
+    });
+    if (!rpaAufgabenLog) {
+      throw new NotFoundException(`RpaAufgabenLogs with ID ${id} not found`);
+    }
+    return rpaAufgabenLog;
   }
 
   async create(rpaAufgabenLogs: RpaAufgabenLogs): Promise<RpaAufgabenLogs> {

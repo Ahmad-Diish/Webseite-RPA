@@ -1,9 +1,9 @@
 // src/userlogon/userlogon.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserLogonService } from './userlogon.service';
-import { UserLogonController } from './userlogon.controller';
-import { UserLogon } from './userlogon.entity';
+import { UserLogonService } from './userlogen.service';
+import { UserLogonController } from './userlogen.controller';
+import { UserLogon } from './userlogen.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([UserLogon])],

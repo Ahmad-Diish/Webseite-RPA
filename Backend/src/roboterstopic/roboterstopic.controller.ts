@@ -1,7 +1,7 @@
 // src/roboter-stopic/roboter-stopic.controller.ts
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
-import { RoboterStopicService } from './roboter-stopic.service';
-import { RoboterStopic } from './roboter-stopic.entity';
+import { RoboterStopicService } from './roboterstopic.service';
+import { RoboterStopic } from './roboterstopic.entity';
 
 @Controller('roboter-stopics')
 export class RoboterStopicController {

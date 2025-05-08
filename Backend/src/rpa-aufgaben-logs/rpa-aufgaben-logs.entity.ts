@@ -6,7 +6,7 @@ import { RpaAufgabe } from '../rpa-aufgaben/rpa-aufgaben.entity';
 @Entity()
 export class RpaAufgabenLogs {
   @PrimaryGeneratedColumn()
-  LogID: number;
+   rpaAufgabenLogID: number;
 
   @ManyToOne(() => RpaAufgabe)
   @JoinColumn()
