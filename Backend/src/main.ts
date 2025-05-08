@@ -3,6 +3,15 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(process.env.PORT ?? 3000);
+
+  // CORS aktivieren
+  app.enableCors({
+    origin: 'http://localhost:3000', // Deine Next.js Frontend URL
+    methods: 'GET,POST,PUT,DELETE',  // Erlaubte HTTP-Methoden
+  });
+
+  await app.listen(3001); // Stelle sicher, dass NestJS auf einem anderen Port läuft als Next.js
 }
 bootstrap();
+
+
