@@ -1,24 +1,30 @@
-// src/rpa-aufgaben-logs/rpa-aufgaben-logs.entity.ts
+// src/robot_status/robot_status.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
 import { Roboter } from '../roboter/roboter.entity';
-import { RpaAufgabe } from '../rpa-aufgaben/rpa-aufgaben.entity';
 
 @Entity()
-export class RpaAufgabenLogs {
+export class RobotStatus {
   @PrimaryGeneratedColumn()
-  LogID: number;
-
-  @ManyToOne(() => RpaAufgabe)
-  @JoinColumn()
-  aufgabe: RpaAufgabe;
+  StatusID: number;
 
   @ManyToOne(() => Roboter)
   @JoinColumn()
   roboter: Roboter;
 
   @Column()
-  LogMessage: string;
+  StatusMessage: string;
+
+  @Column({ nullable: true })
+  PositionX: number;
+
+  @Column({ nullable: true })
+  PositionY: number;
+
+  @Column({ nullable: true })
+  BatteryLevel: number;
 
   @Column()
   Timestamp: Date;
 }
+
+

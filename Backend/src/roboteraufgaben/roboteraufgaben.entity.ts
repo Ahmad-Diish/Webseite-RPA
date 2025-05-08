@@ -1,15 +1,12 @@
-// src/rpa-fehler/rpa-fehler.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+// src/roboteraufgaben/roboteraufgaben.entity.ts
+import { Entity, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { Roboter } from '../roboter/roboter.entity';
 import { RpaAufgabe } from '../rpa-aufgaben/rpa-aufgaben.entity';
 
 @Entity()
-export class RpaFehler {
+export class RoboterAufgabe {
   @PrimaryGeneratedColumn()
-  FehlerID: number;
-
-  @Column()
-  FehlerNachricht: string;
+  roboteraufgabenID: number;
 
   @ManyToOne(() => Roboter)
   @JoinColumn()
@@ -18,7 +15,5 @@ export class RpaFehler {
   @ManyToOne(() => RpaAufgabe)
   @JoinColumn()
   aufgabe: RpaAufgabe;
-
-  @Column()
-  FehlerZeitpunkt: Date;
 }
+
