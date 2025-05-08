@@ -24,9 +24,6 @@ export class Roboter {
   @Column({ nullable: true })
   roboterStart: Date;
 
-  @Column()
-  roboterEnd: Date;
-
   @Column({ nullable: true })
   roboterResponsible: string;
 

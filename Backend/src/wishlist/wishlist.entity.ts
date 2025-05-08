@@ -15,7 +15,4 @@ export class Wishlist {
   @ManyToOne(() => User)
   @JoinColumn()
   user: User;
-
-  @Column()
-  created_at: Date;
 }
