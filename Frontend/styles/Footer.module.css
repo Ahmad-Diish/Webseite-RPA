@@ -1,0 +1,96 @@
+.footer {
+    background: linear-gradient(#19834e, #256658);
+    color: #ffffff;
+    padding:10px 50px;
+  }
+  
+  .footer h3 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .footer .col-left,
+  .footer .col-right {
+    flex: 1 1 300px;
+    margin-bottom: 30px;
+  }
+  
+  .addressLink {
+    color: #ffffff;
+    text-decoration: none;
+    line-height: 1.6;
+  }
+  
+  .addressLink:hover {
+    color: #cfd8dc;
+  }
+  
+  .social-icons a {
+    color: #198122;
+    margin-right: 15px;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #cfd8dc;
+  }
+  
+  .input-group {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .input-group input {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .input-group button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #033026;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  
+  .input-group button:hover {
+    background-color: #24a735;
+  }
+  
+  .footerHr {
+    border-top: 2px solid #ffffff;
+    margin: 20px 0;
+  }
+  
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+  }
+  
+  .footer-links a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+  
+  .footer-links a:hover {
+    color: #cfd8dc;
+  }
+  
+  .text-end {
+    text-align: right;
+    color: #ffffff;
+  }
+  

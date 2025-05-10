@@ -1,35 +1,42 @@
-.container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0;
+body {
     font-family: 'Roboto', sans-serif;
     background-color: white;
-  }
-  
-  .heading {
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
     color: #1C488F;
     margin-bottom: 20px;
     text-align: center;
-  }
-  
-  .row {
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 0;
+}
+
+.row {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 0 -15px;
-  }
-  
-  .col {
+}
+
+.col-md-3,
+.col-lg-3,
+.col-12 {
     padding: 0 15px;
+}
+
+.col-md-3,
+.col-lg-3 {
     flex: 0 0 30%;
     max-width: 30%;
-    margin-bottom: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .col {
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
-  }
-  
+}
+
+.col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
